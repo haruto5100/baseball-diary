@@ -69,7 +69,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                                     checked={timeMode === "14:00"}
                                     onChange={() => { setTimeMode("14:00"); setValue("startTime", "14:00"); }}
                                 />
-                                <span className="text-sm font-bold">14:00</span>
+                                <span className="text-sm font-bold text-black">14:00</span>
                             </label>
                             <label className="flex items-center cursor-pointer whitespace-nowrap">
                                 <input
@@ -79,7 +79,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                                     checked={timeMode === "18:00"}
                                     onChange={() => { setTimeMode("18:00"); setValue("startTime", "18:00"); }}
                                 />
-                                <span className="text-sm font-bold">18:00</span>
+                                <span className="text-sm font-bold text-black">18:00</span>
                             </label>
                             <label className="flex items-center cursor-pointer whitespace-nowrap">
                                 <input
@@ -89,7 +89,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                                     checked={timeMode === "custom"}
                                     onChange={() => { setTimeMode("custom"); setValue("startTime", ""); }}
                                 />
-                                <span className="text-sm font-bold">その他</span>
+                                <span className="text-sm font-bold text-black">その他</span>
                             </label>
                         </div>
 
