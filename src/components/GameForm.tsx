@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { GameRecord } from "@/types";
@@ -15,11 +15,19 @@ interface GameFormProps {
 }
 
 export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }: GameFormProps) {
-    const { register, handleSubmit, reset } = useForm<GameRecord>();
+    const { register, handleSubmit, reset, setValue } = useForm<GameRecord>();
+    const [timeMode, setTimeMode] = useState<"14:00" | "18:00" | "custom">("18:00");
 
     useEffect(() => {
         if (initialValues) {
             reset(initialValues);
+            if (initialValues.startTime === "14:00") {
+                setTimeMode("14:00");
+            } else if (initialValues.startTime === "18:00") {
+                setTimeMode("18:00");
+            } else {
+                setTimeMode("custom");
+            }
         } else {
             reset({
                 date: new Date().toISOString().split('T')[0],
@@ -29,8 +37,10 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                 visitorScore: "",
                 league: "",
                 stadium: "",
-                memo: ""
+                memo: "",
+                startTime: "18:00"
             });
+            setTimeMode("18:00");
         }
     }, [initialValues, reset]);
 
@@ -48,11 +58,50 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                         required
                         {...register("date", { required: true })}
                     />
-                    <Input
-                        label="開始時刻"
-                        type="time"
-                        {...register("startTime")}
-                    />
+                    <div className="space-y-2">
+                        <label className="block text-xs font-bold text-gray-700">開始時刻</label>
+                        <div className="flex flex-wrap gap-4 items-center">
+                            <label className="flex items-center cursor-pointer whitespace-nowrap">
+                                <input
+                                    type="radio"
+                                    name="timeMode"
+                                    className="mr-1 accent-blue-600"
+                                    checked={timeMode === "14:00"}
+                                    onChange={() => { setTimeMode("14:00"); setValue("startTime", "14:00"); }}
+                                />
+                                <span className="text-sm font-bold">14:00</span>
+                            </label>
+                            <label className="flex items-center cursor-pointer whitespace-nowrap">
+                                <input
+                                    type="radio"
+                                    name="timeMode"
+                                    className="mr-1 accent-blue-600"
+                                    checked={timeMode === "18:00"}
+                                    onChange={() => { setTimeMode("18:00"); setValue("startTime", "18:00"); }}
+                                />
+                                <span className="text-sm font-bold">18:00</span>
+                            </label>
+                            <label className="flex items-center cursor-pointer whitespace-nowrap">
+                                <input
+                                    type="radio"
+                                    name="timeMode"
+                                    className="mr-1 accent-blue-600"
+                                    checked={timeMode === "custom"}
+                                    onChange={() => { setTimeMode("custom"); setValue("startTime", ""); }}
+                                />
+                                <span className="text-sm font-bold">その他</span>
+                            </label>
+                        </div>
+
+                        {timeMode === "custom" && (
+                            <div className="mt-2">
+                                <Input
+                                    type="time"
+                                    {...register("startTime")}
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 <div>
