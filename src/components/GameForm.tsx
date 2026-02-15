@@ -108,7 +108,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                     <label className="block text-xs font-bold text-gray-700 mb-1">リーグ / 大会名</label>
                     <input
                         list="leagueOptions"
-                        placeholder="例: セ・リーグ，都市対抗"
+                        placeholder="例: セ・リーグ、都市対抗"
                         className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-base text-black outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
                         {...register("league")}
                     />
@@ -143,6 +143,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                             />
                             <input
                                 type="number"
+                                min={0}
                                 placeholder="0"
                                 className="w-16 text-center text-xl font-bold border border-gray-300 rounded p-1 outline-none focus:border-blue-500 mx-auto block placeholder-gray-300 bg-white text-black"
                                 {...register("homeScore")}
@@ -160,13 +161,14 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                             />
                             <input
                                 type="number"
+                                min={0}
                                 placeholder="0"
                                 className="w-16 text-center text-xl font-bold border border-gray-300 rounded p-1 outline-none focus:border-blue-500 mx-auto block placeholder-gray-300 bg-white text-black"
                                 {...register("visitorScore")}
                             />
                         </div>
                     </div>
-                    <p className="text-center text-xs text-gray-400 mt-1">※贔屓チーム名と完全一致で勝敗判定します</p>
+                    <p className="text-center text-xs text-gray-400 mt-1">※贔屓チーム名と完全一致で勝敗判定します。</p>
                 </div>
 
                 <div>

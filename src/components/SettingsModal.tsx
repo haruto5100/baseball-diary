@@ -41,7 +41,7 @@ export function SettingsModal({ isOpen, onClose, initialTeam, onSave }: Settings
                         className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-black outline-none focus:border-blue-500"
                         {...register("favoriteTeam")}
                     />
-                    <p className="text-xs text-gray-500 mt-1">※記録時のチーム名と完全に一致させてください．</p>
+                    <p className="text-xs text-gray-500 mt-1">※記録時のチーム名と完全に一致させてください。</p>
                 </div>
 
                 <div className="flex justify-end space-x-3">

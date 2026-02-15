@@ -41,7 +41,7 @@ export function GameCard({ game, favoriteTeam, onClick }: GameCardProps) {
     };
 
     const dateObj = new Date(game.date);
-    const dateStr = `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
+    const dateStr = game.date.replace(/-/g, '/');
     const dayStr = ['日', '月', '火', '水', '木', '金', '土'][dateObj.getDay() || 0] || '日';
 
     return (

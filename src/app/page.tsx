@@ -20,7 +20,7 @@ export default function Home() {
   const [games, setGames] = useLocalStorage<GameRecord[]>("baseball-diary-games", initialGames);
   const [settings, setSettings] = useLocalStorage<AppSettings>("baseball-diary-settings", { favoriteTeam: "" });
 
-  const [selectedYear, setSelectedYear] = useState<string>(new Date().getFullYear().toString());
+  const [selectedYear, setSelectedYear] = useState<string>("all");
 
   // Modal States
   const [modalMode, setModalMode] = useState<"new" | "edit" | null>(null);
@@ -220,8 +220,9 @@ export default function Home() {
               />
             ))
           ) : (
-            <div className="text-center py-10 text-gray-500">
-              記録がありません．<br />右下のボタンから追加してください．
+            <div className="text-center text-gray-500 mt-20">
+              <p>記録がありません。</p>
+              <p className="text-sm mt-2">右下のボタンから追加してください。</p>
             </div>
           )}
         </div>
