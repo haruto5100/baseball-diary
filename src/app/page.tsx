@@ -9,7 +9,7 @@ import { SettingsModal } from "@/components/SettingsModal";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { initialGames } from "@/lib/mockData";
+
 import { GameRecord } from "@/types";
 
 interface AppSettings {
@@ -17,7 +17,7 @@ interface AppSettings {
 }
 
 export default function Home() {
-  const [games, setGames] = useLocalStorage<GameRecord[]>("baseball-diary-games", initialGames);
+  const [games, setGames] = useLocalStorage<GameRecord[]>("baseball-diary-games", []);
   const [settings, setSettings] = useLocalStorage<AppSettings>("baseball-diary-settings", { favoriteTeam: "" });
 
   const [selectedYear, setSelectedYear] = useState<string>("all");

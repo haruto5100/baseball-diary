@@ -37,7 +37,7 @@ export function SettingsModal({ isOpen, onClose, initialTeam, onSave }: Settings
                     <label className="block text-sm font-bold text-gray-700 mb-2">あなたの応援チーム</label>
                     <input
                         type="text"
-                        placeholder="例: タイガース"
+                        placeholder="例: 日本"
                         className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-black outline-none focus:border-blue-500"
                         {...register("favoriteTeam")}
                     />
