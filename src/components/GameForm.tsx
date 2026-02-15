@@ -60,7 +60,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                     <input
                         list="leagueOptions"
                         placeholder="例: セ・リーグ，都市対抗"
-                        className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-base outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
+                        className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-base text-black outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
                         {...register("league")}
                     />
                     <datalist id="leagueOptions">
@@ -89,13 +89,13 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                                 type="text"
                                 required
                                 placeholder="チーム名"
-                                className="w-full text-center border border-gray-300 rounded p-1 mb-2 outline-none focus:border-blue-500 text-base placeholder-gray-400"
+                                className="w-full text-center border border-gray-300 rounded p-1 mb-2 outline-none focus:border-blue-500 text-base text-black placeholder-gray-400"
                                 {...register("homeTeam", { required: true })}
                             />
                             <input
                                 type="number"
                                 placeholder="0"
-                                className="w-16 text-center text-xl font-bold border border-gray-300 rounded p-1 outline-none focus:border-blue-500 mx-auto block placeholder-gray-300 bg-white"
+                                className="w-16 text-center text-xl font-bold border border-gray-300 rounded p-1 outline-none focus:border-blue-500 mx-auto block placeholder-gray-300 bg-white text-black"
                                 {...register("homeScore")}
                             />
                         </div>
@@ -106,13 +106,13 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                                 type="text"
                                 required
                                 placeholder="チーム名"
-                                className="w-full text-center border border-gray-300 rounded p-1 mb-2 outline-none focus:border-blue-500 text-base placeholder-gray-400"
+                                className="w-full text-center border border-gray-300 rounded p-1 mb-2 outline-none focus:border-blue-500 text-base text-black placeholder-gray-400"
                                 {...register("visitorTeam", { required: true })}
                             />
                             <input
                                 type="number"
                                 placeholder="0"
-                                className="w-16 text-center text-xl font-bold border border-gray-300 rounded p-1 outline-none focus:border-blue-500 mx-auto block placeholder-gray-300 bg-white"
+                                className="w-16 text-center text-xl font-bold border border-gray-300 rounded p-1 outline-none focus:border-blue-500 mx-auto block placeholder-gray-300 bg-white text-black"
                                 {...register("visitorScore")}
                             />
                         </div>
@@ -125,7 +125,7 @@ export function GameForm({ initialValues, onSubmit, onCancel, isEdit, onDelete }
                     <textarea
                         rows={3}
                         placeholder="感想や印象的なプレーなど..."
-                        className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-base outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
+                        className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-base text-black outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
                         {...register("memo")}
                     ></textarea>
                 </div>

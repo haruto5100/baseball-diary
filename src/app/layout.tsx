@@ -41,7 +41,7 @@ export default function RootLayout({
       <head>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
       </head>
-      <body className={`${inter.className} font-sans bg-[#f3f4f6] text-gray-800`}>
+      <body className={`${inter.className} font-sans bg-white text-black`}>
         {children}
       </body>
     </html>
