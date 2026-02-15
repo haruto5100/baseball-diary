@@ -30,19 +30,9 @@ export default function Home() {
 
   // Extract available years
   const availableYears = useMemo(() => {
-    if (!games) return ["all", new Date().getFullYear().toString()];
-    const years = new Set(games.map(g => g.date.split("-")[0]));
-    const sortedYears = Array.from(years).sort((a, b) => b.localeCompare(a));
-    const currentYear = new Date().getFullYear().toString();
-    if (!sortedYears.includes(currentYear)) {
-      if (sortedYears.length === 0 || sortedYears[0] < currentYear) {
-        sortedYears.unshift(currentYear);
-      } else {
-        if (!sortedYears.includes(currentYear)) sortedYears.push(currentYear);
-        sortedYears.sort((a, b) => b.localeCompare(a));
-      }
-    }
-    return ["all", ...sortedYears];
+    if (!games || games.length === 0) return ["all"];
+    const uniqueYears = Array.from(new Set(games.map(g => g.date.split("-")[0]))).sort((a, b) => b.localeCompare(a));
+    return ["all", ...uniqueYears];
   }, [games]);
 
   // Filter games
