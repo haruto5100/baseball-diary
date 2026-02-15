@@ -191,17 +191,17 @@ export default function Home() {
           <div className="grid grid-cols-3 gap-2 text-center divide-x divide-gray-100">
             <div>
               <p className="text-xs text-gray-500 mb-1">観戦数</p>
-              <p className="text-xl font-bold">{stats.totalGames}</p>
+              <p className="text-xl font-bold text-black">{stats.totalGames}</p>
             </div>
             <div>
               <p className="text-xs text-gray-500 mb-1">勝-負-分</p>
-              <p className="text-xl font-bold">
+              <p className="text-xl font-bold text-black">
                 {settings.favoriteTeam ? `${stats.win}-${stats.loss}-${stats.draw}` : '-'}
               </p>
             </div>
             <div>
               <p className="text-xs text-gray-500 mb-1">勝率</p>
-              <p className={`text-xl font-bold ${stats.rate !== '-' ? 'text-red-600' : ''}`}>
+              <p className="text-xl font-bold text-black">
                 {stats.rate}
               </p>
             </div>
